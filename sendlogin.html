@@ -1,0 +1,260 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="shortcut icon" href="icon/icon_map.ico" />
+<link href="css/rmc.css" rel="stylesheet" type="text/css" />
+<title>UPS Remote Management</title>
+</head>
+<body>
+<table class="top" align="center">
+	<tr>
+		<td valign="bottom"><img src="img/logo.gif" border="0" width="125" height="50" /></a></td>
+		<td valign="bottom" class="appName" nowrap="nowrap">
+			UPS Remote Management
+		</td>
+		<td width="100%" valign="bottom">
+			<div>
+				<div align="right" class="userInfo">Administrator login from 192.168.50.89<img src="img/admin.gif" alt="" height="12" width="12" align="absmiddle"/> 
+				[<a href="logout.html" class="logoutState">Logout</a>&nbsp;<img src="img/exit.gif" align="absmiddle"/>]</div>
+			</div>
+			<ul class="nav">
+				<li id="noSeperator">
+					<div></div><a href="/help/summary.html" target="w" onclick="var w=open('/help/summary.html','w','width=770,height=610,menubar=no,directories=no,resizable=yes,scrollbars=yes'); w.focus();return false;">Help</a>
+				</li>
+				<li><div class="leftEdge"></div><a href="account.html">System</a><div class="rightEdge"></div></li>
+				<li ><div class="leftEdge"></div><a href="logs.html">Logs</a><div class="rightEdge"></div></li>
+				<li ><div class="leftEdge"></div><a href="status.html">UPS</a><div class="rightEdge"></div></li>
+				<li class="tabHit"><div class="leftEdge"></div><a href="summary.html">Summary</a><div class="rightEdge"></div></li>
+			</ul>
+		</td>
+	</tr>
+</table><div class="main">
+	<table width="100%"  align="center">
+		<tr>
+			<td class="workspace" valign="top">	
+<div class="content">
+<script type="text/javascript">
+function doRequest(elemId, uri, rate){
+	
+	var req;
+	var timeId = setInterval(function() {
+
+		if (window.XMLHttpRequest) {
+			req = new XMLHttpRequest();
+		} else if (window.ActiveXObject) {
+			req = new ActiveXObject("Microsoft.XMLHTTP");
+		} else{
+			clearInterval(timeId);
+		}
+		req.onreadystatechange = function(){
+			if (req.readyState == 4 && req.status == 200) 
+				document.getElementById(elemId).innerHTML = req.responseText;
+		};
+		req.open("GET", uri );
+		req.send(null);
+	}, rate * 1000);
+		
+}
+
+doRequest("conditions","summary_conditions.html",30);
+doRequest("upsStatus","summary_status.html",5);
+doRequest("events","summary_events.html",60);
+</script>
+	<div id="conditions" class="gap2">
+		<div class="summaryCaption">Current Condition:</div>
+		<ul class="conditionList">
+			
+			
+			<li><img src="img/info.gif" alt=""/><span class="txt">UPS is normal</span></li>
+		</ul>
+	</div>
+	<div class="gap2">
+		<div id="upsStatus">
+			<div class="summaryCaption">UPS Status:</div>
+			<table width="100%" class="statusTable">
+				<tr>
+					<td class="summaryLb">Battery Capacity</td>
+					<td id="capacity" class="summaryTxt">100 %</td>
+					<td><div class="scaleEmpty"><div id="capacityScale" class="scaleNormal" style="width:200px"></div></div></td>
+				</tr>
+				<tr>
+					<td class="summaryLb">Load</td>
+					<td id="load" class="summaryTxt">27 %</td>
+					<td><div class="scaleEmpty"><div id="loadScale" class="scaleNormal" style="width:54px"></div></div></td>
+				</tr>
+				<tr>
+					<td class="summaryLb">Remaining Runtime</td>
+					<td id="runtime" class="summaryTxt autoWidth" colspan="2">33 min(s)</td>
+				</tr>
+			</table>
+		</div>
+		<div id="sysData">
+			<div class="summaryCaption">System Data:</div>
+			<span class="lb summaryLb2">Name</span><span class="txt">Broadcast UPS 1</span><br/>
+			<span class="lb summaryLb2">Location</span><span class="txt"></span><br/>
+			<span class="lb summaryLb2">Contact</span><span class="txt"></span><br/>
+			<span class="lb summaryLb2">Uptime</span><span class="txt">32sec.</span>
+		</div>
+	</div>
+	<div class="summaryCaption">Recent Events:</div>
+	<div id="events" class="gap2">
+		<table class="list" width="98%"> 
+			<thead> 
+				<tr> 
+					<th width="140" align="left">Date &amp; Time</th>
+				    <th align="left">Event</th>
+				</tr>
+			</thead>
+			<tbody>
+			 	<tr>
+			 		<td>06/29/2023  07:24:31</td>
+			 		<td>Admin login from 192.168.50.89.</td>
+			 	</tr>
+			 	<tr>
+			 		<td>06/29/2023  07:24:06</td>
+			 		<td>Communication with the UPS has been established</td>
+			 	</tr>
+			 	<tr>
+			 		<td>06/29/2023  07:23:12</td>
+			 		<td>Communication with the UPS has been established</td>
+			 	</tr>
+			 	<tr>
+			 		<td>06/29/2023  07:22:24</td>
+			 		<td>Communication with the UPS has been established</td>
+			 	</tr>
+			 	<tr>
+			 		<td>06/29/2023  01:43:02</td>
+			 		<td>Admin logout from 192.168.50.42.</td>
+			 	</tr>
+			</tbody>
+		</table>
+	</div>
+</div></td></tr></table></div><div class="footer"><p align="left">
+<table border="0" width="95%" align="center"><tr>
+<td width="35%">&copy; Middle Atlantic Products, Inc.</td>
+<td width="27%">All Rights Reserved</td>
+<td width="30%"><a href=http://www.middleatlantic.com/ target=_BLANK>www.middleatlantic.com</a><td>
+<td width="8%">rev 1.1.1<td>
+</tr></table>
+</p></div>
+<style>
+	.ch_def_pass{
+		position:absolute;
+		top:40%;
+		left:35%;
+		width:300px;
+		height:210px;
+		padding-left:20px;
+		padding-right:20px;
+		padding-top:20px;
+		border:2px solid white;
+		#background:#1B60AE;
+		background:white;
+		border-top-left-radius: 1em;
+		border-top-right-radius: 1em;
+		border-bottom-left-radius: 1em;
+		border-bottom-right-radius: 1em;
+		z-index: -1;
+	}
+	.ch_def_out_border{
+		position:absolute;
+		top:0;
+		left:0;
+		right:0;
+		bottom:0;
+		width:100%;
+		height:100%;
+		padding-left:20px;
+		padding-right:20px;
+		padding-top:20px;
+		border:2px solid;
+		background:black;
+		opacity: 0.7;
+		z-index: -1;
+	}
+</style>
+<div id="ch_pass" style="display:none" class="ch_def_pass">
+	<form method="GET" action="default_setup.cgi">
+		<input id="direct_url" name="direct_url" type="hidden" value="test"></input>
+		<span class="txt"><b style="color:blach">You have logged in with the factory default User Name and Password. For enhanced security, please setup a new User Name and Password.</b></span></br>
+		<table width="100%">
+			<tr>
+				<td>
+					<table width="95%" align="right">
+						<tr style="height:25px;">
+							<td>
+								<span id="account_string" class="txt" style="color:blach">New User Name</span>
+							</td>
+							<td>
+								<input id="def_account" maxlength="15" name="def_account" type="text" width="15"></input>
+							</td>
+						</tr>
+						<tr style="height:25px;">
+							<td>
+								<span id="def_new_string" class="txt" style="color:blach">New Password</span>
+							</td>
+							<td>
+								<input id="def_new_pass" maxlength="15" name="def_new_pass" type="password" width="15"></input>
+							</td>
+						</tr>
+						<tr style="height:25px;">
+							<td>
+								<span id="def_new_vstring" class="txt" style="color:blach">Confirm Password</span>
+							</td>
+							<td>
+								<input id="def_new_vpass" maxlength="15" name="def_new_vpass" type="password" width="15"></input>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<tr>
+				<td align="center">
+					</br><input type="button" value="Apply" style="width:100px" onclick="default_setup(this.form)"></br>
+					<div id="default_change_msg" class="txt"></div>
+				</td>
+			</tr>
+		</table>
+	</form>
+</div>
+<div id="out_border" style="display:none" class="ch_def_out_border">
+</div>
+<script>
+	function show_change_table(){
+		document.getElementById("ch_pass").style.display = "block";
+		document.getElementById("out_border").style.display = "block";
+		document.getElementById("ch_pass").style.zIndex = 2;
+		document.getElementById("out_border").style.zIndex = 1;
+		document.body.style.overflow = "hidden";
+	}
+	function hide_change_table(){
+		document.getElementById("ch_pass").style.display = "none";
+		document.getElementById("out_border").style.display = "none";
+		document.getElementById("ch_pass").style.zIndex = -1;
+		document.getElementById("out_border").style.zIndex = -1;
+		document.body.style.overflow = "";
+	}
+	function default_setup(form){
+		var new_pass = document.getElementById("def_new_pass").value;
+		var new_pass_confirm = document.getElementById("def_new_vpass").value;
+		var new_account = document.getElementById("def_account").value;
+		document.getElementById("direct_url").value = location.pathname;
+		if(new_account == ""){
+			document.getElementById("default_change_msg").innerHTML = "<font color='red'>Admin User Name has been entered incorrectly.</font>";
+			return;
+		}
+		if(new_pass == "admin"){
+			document.getElementById("default_change_msg").innerHTML = "<font color='red'>Default password cannot be used. Please select a new password.</font>";
+		}
+		else if((new_pass == new_pass_confirm) && !(new_pass == "" || new_pass_confirm == ""))
+			form.submit();
+		else{
+			document.getElementById("default_change_msg").innerHTML = "<font color='red'>Admin Confirm Password has been entered incorrectly.</font>";
+			return;
+		}
+	}
+	hide_change_table();
+</script>
+</body></html>

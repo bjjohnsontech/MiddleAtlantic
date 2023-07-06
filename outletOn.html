@@ -1,0 +1,291 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="shortcut icon" href="icon/icon_map.ico" />
+<link href="css/rmc.css" rel="stylesheet" type="text/css" />
+<title>UPS Remote Management</title>
+</head>
+<body>
+<table class="top" align="center">
+	<tr>
+		<td valign="bottom"><img src="img/logo.gif" border="0" width="125" height="50" /></a></td>
+		<td valign="bottom" class="appName" nowrap="nowrap">
+			UPS Remote Management
+		</td>
+		<td width="100%" valign="bottom">
+			<div>
+				<div align="right" class="userInfo">Administrator login from 192.168.50.89<img src="img/admin.gif" alt="" height="12" width="12" align="absmiddle"/> 
+				[<a href="logout.html" class="logoutState">Logout</a>&nbsp;<img src="img/exit.gif" align="absmiddle"/>]</div>
+			</div>
+			<ul class="nav">
+				<li id="noSeperator">
+					<div></div><a href="/help/outlet_individual.html" target="w" onclick="var w=open('/help/outlet_individual.html','w','width=770,height=610,menubar=no,directories=no,resizable=yes,scrollbars=yes'); w.focus();return false;">Help</a>
+				</li>
+				<li><div class="leftEdge"></div><a href="account.html">System</a><div class="rightEdge"></div></li>
+				<li ><div class="leftEdge"></div><a href="logs.html">Logs</a><div class="rightEdge"></div></li>
+				<li class="tabHit"><div class="leftEdge"></div><a href="status.html">UPS</a><div class="rightEdge"></div></li>
+				<li ><div class="leftEdge"></div><a href="summary.html">Summary</a><div class="rightEdge"></div></li>
+			</ul>
+		</td>
+	</tr>
+</table><div class="main">
+	<table width="100%">
+		<tr>
+			<td valign="top">
+				<div class="menu">
+					<a href="status.html" class="item ">Status</a>
+					<a href="info.html" class="item ">Information</a>
+					<a href="config.html" class="item ">Configuration</a>
+					<a href="switch.html" class="item">Control</a>
+					<a href="outlet_individual.html" class="item menuHit">Outlet Control</a>
+					<a href="diagnostics.html" class="item ">Diagnostics</a>
+					<a href="schedule.html" class="item ">Schedule</a>
+				</div>
+				<div class="bottomSharp">&nbsp;</div>
+			</td>
+			<td width="100%" class="workspace" valign="top">
+<div class="header">Individual Outlet Control:</div>
+<script type="text/javascript">
+var UPDATE_NCL = 0;
+var UPDATE_INDIVIDUAL = 1;
+function updateDateTime(uri, rate) {
+
+	var req;
+	var timeId = setInterval(function() {
+
+		if (window.XMLHttpRequest) {
+			req = new XMLHttpRequest();
+		} else if (window.ActiveXObject) {
+			req = new ActiveXObject("Microsoft.XMLHTTP");
+		} else {
+			clearInterval(timeId);
+			return;
+		}
+		req.onreadystatechange = function() {
+			if (req.readyState == 4 && req.status == 200) {
+				var xml = req.responseXML;
+				var response = xml.getElementsByTagName("response")[0];
+				var flag = response.firstChild.firstChild.nodeValue;
+				if (flag == UPDATE_NCL) {
+					document.getElementById("ncl").innerHTML = response.childNodes[1].firstChild.nodeValue;
+					updateDateTime("outlet_update.html", 1);
+				} else if (flag == UPDATE_INDIVIDUAL) {
+					document.getElementById("o1").innerHTML = response.childNodes[2].firstChild.nodeValue;
+					document.getElementById("o2").innerHTML = response.childNodes[3].firstChild.nodeValue;
+					document.getElementById("o3").innerHTML = response.childNodes[4].firstChild.nodeValue;
+					document.getElementById("o4").innerHTML = response.childNodes[5].firstChild.nodeValue;
+					document.getElementById("o5").innerHTML = response.childNodes[6].firstChild.nodeValue;
+					document.getElementById("o6").innerHTML = response.childNodes[7].firstChild.nodeValue;
+					document.getElementById("o7").innerHTML = response.childNodes[8].firstChild.nodeValue;
+					document.getElementById("o8").innerHTML = response.childNodes[9].firstChild.nodeValue;
+					updateDateTime("outlet_update.html", 1);
+				} else {	
+					// do nothing
+				}
+				clearInterval(timeId);
+				return;
+			}
+		};
+		req.open("GET", uri);
+		req.send(null);
+	}, rate * 1000);
+}
+updateDateTime("outlet_update.html", 1);
+</script>
+<div class="content">
+	<form action="outlet_individual.cgi" method="get">
+	<table class="list outlet"> 
+		<thead> 
+			<tr> 
+					<th width="140px">Outlet</th>
+			    <th width="90px">Current State</th>
+			    <th width="90px">ON</th>
+			    <th width="90px">OFF</th>
+			</tr>
+		</thead>
+		<tbody>
+		 	<tr>
+		 		<td><a href="outletname_edit.html?e=1">1. 8K</a></td>
+		 		<td><label id="o1"><b><font color=green>ON</font></b></label></td>
+		 		<td><input type="radio" name="Out1" value="on" class="radio" /></td>
+		 		<td><input type="radio" name="Out1" value="off" class="radio" /></td>
+		 	</tr>
+		 	<tr>
+		 		<td><a href="outletname_edit.html?e=2">2. 40X40</a></td>
+		 		<td><label id="o2"><b><font color=green>ON</font></b></label></td>
+		 		<td><input type="radio" name="Out2" value="on" class="radio" /></td>
+		 		<td><input type="radio" name="Out2" value="off" class="radio" /></td>
+		 	</tr>
+		 	<tr>
+		 		<td><a href="outletname_edit.html?e=3">3. Hyperdeck 1</a></td>
+		 		<td><label id="o3"><b><font color=green>ON</font></b></label></td>
+		 		<td><input type="radio" name="Out3" value="on" class="radio" /></td>
+		 		<td><input type="radio" name="Out3" value="off" class="radio" /></td>
+		 	</tr>
+		 	<tr>
+		 		<td><a href="outletname_edit.html?e=4">4. ATEM 8k 1</a></td>
+		 		<td><label id="o4"><b><font color=green>ON</font></b></label></td>
+		 		<td><input type="radio" name="Out4" value="on" class="radio"/ ></td>
+		 		<td><input type="radio" name="Out4" value="off" class="radio"/ ></td>
+		 	</tr>
+		 	<tr>
+		 		<td><a href="outletname_edit.html?e=5">5. Resi Encoder</a></td>
+		 		<td><label id="o5"><b><font color=green>ON</font></b></label></td>
+		 		<td><input type="radio" name="Out5" value="on" class="radio" /></td>
+		 		<td><input type="radio" name="Out5" value="off" class="radio" /></td>
+		 	</tr>
+		 	<tr>
+		 		<td><a href="outletname_edit.html?e=6">6. Pro Presenter</a></td>
+		 		<td><label id="o6"><b><font color=green>ON</font></b></label></td>
+		 		<td><input type="radio" name="Out6" value="on" class="radio" /></td>
+		 		<td><input type="radio" name="Out6" value="off" class="radio" /></td>
+		 	</tr>
+		 	<tr>
+		 		<td><a href="outletname_edit.html?e=7">7. Ultrastudio 4K</a></td>
+		 		<td><label id="o7"><b><font color=green>ON</font></b></label></td>
+		 		<td><input type="radio" name="Out7" value="on" class="radio" /></td>
+		 		<td><input type="radio" name="Out7" value="off" class="radio" /></td>
+		 	</tr>
+		 	<tr>
+		 		<td><a href="outletname_edit.html?e=8">8. TVs</a></td>
+		 		<td><label id="o8"><b><font color=green>ON</font></b></label></td>
+		 		<td><input type="radio" name="Out8" value="on" class="radio" /></td>
+		 		<td><input type="radio" name="Out8" value="off" class="radio" /></td>
+		 	</tr>
+		</tbody>
+	</table>
+	<br/>
+<div class="block">
+	<input type="submit" name="action" value="Apply" class="btn"/>&nbsp;
+	<input type="reset" name="cancel" value="Reset" class="btn"/>
+</div>
+	</form>
+</div></td></tr></table></div><div class="footer"><p align="left">
+<table border="0" width="95%" align="center"><tr>
+<td width="35%">&copy; Middle Atlantic Products, Inc.</td>
+<td width="27%">All Rights Reserved</td>
+<td width="30%"><a href=http://www.middleatlantic.com/ target=_BLANK>www.middleatlantic.com</a><td>
+<td width="8%">rev 1.1.1<td>
+</tr></table>
+</p></div>
+<style>
+	.ch_def_pass{
+		position:absolute;
+		top:40%;
+		left:35%;
+		width:300px;
+		height:210px;
+		padding-left:20px;
+		padding-right:20px;
+		padding-top:20px;
+		border:2px solid white;
+		#background:#1B60AE;
+		background:white;
+		border-top-left-radius: 1em;
+		border-top-right-radius: 1em;
+		border-bottom-left-radius: 1em;
+		border-bottom-right-radius: 1em;
+		z-index: -1;
+	}
+	.ch_def_out_border{
+		position:absolute;
+		top:0;
+		left:0;
+		right:0;
+		bottom:0;
+		width:100%;
+		height:100%;
+		padding-left:20px;
+		padding-right:20px;
+		padding-top:20px;
+		border:2px solid;
+		background:black;
+		opacity: 0.7;
+		z-index: -1;
+	}
+</style>
+<div id="ch_pass" style="display:none" class="ch_def_pass">
+	<form method="GET" action="default_setup.cgi">
+		<input id="direct_url" name="direct_url" type="hidden" value="test"></input>
+		<span class="txt"><b style="color:blach">You have logged in with the factory default User Name and Password. For enhanced security, please setup a new User Name and Password.</b></span></br>
+		<table width="100%">
+			<tr>
+				<td>
+					<table width="95%" align="right">
+						<tr style="height:25px;">
+							<td>
+								<span id="account_string" class="txt" style="color:blach">New User Name</span>
+							</td>
+							<td>
+								<input id="def_account" maxlength="15" name="def_account" type="text" width="15"></input>
+							</td>
+						</tr>
+						<tr style="height:25px;">
+							<td>
+								<span id="def_new_string" class="txt" style="color:blach">New Password</span>
+							</td>
+							<td>
+								<input id="def_new_pass" maxlength="15" name="def_new_pass" type="password" width="15"></input>
+							</td>
+						</tr>
+						<tr style="height:25px;">
+							<td>
+								<span id="def_new_vstring" class="txt" style="color:blach">Confirm Password</span>
+							</td>
+							<td>
+								<input id="def_new_vpass" maxlength="15" name="def_new_vpass" type="password" width="15"></input>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<tr>
+				<td align="center">
+					</br><input type="button" value="Apply" style="width:100px" onclick="default_setup(this.form)"></br>
+					<div id="default_change_msg" class="txt"></div>
+				</td>
+			</tr>
+		</table>
+	</form>
+</div>
+<div id="out_border" style="display:none" class="ch_def_out_border">
+</div>
+<script>
+	function show_change_table(){
+		document.getElementById("ch_pass").style.display = "block";
+		document.getElementById("out_border").style.display = "block";
+		document.getElementById("ch_pass").style.zIndex = 2;
+		document.getElementById("out_border").style.zIndex = 1;
+		document.body.style.overflow = "hidden";
+	}
+	function hide_change_table(){
+		document.getElementById("ch_pass").style.display = "none";
+		document.getElementById("out_border").style.display = "none";
+		document.getElementById("ch_pass").style.zIndex = -1;
+		document.getElementById("out_border").style.zIndex = -1;
+		document.body.style.overflow = "";
+	}
+	function default_setup(form){
+		var new_pass = document.getElementById("def_new_pass").value;
+		var new_pass_confirm = document.getElementById("def_new_vpass").value;
+		var new_account = document.getElementById("def_account").value;
+		document.getElementById("direct_url").value = location.pathname;
+		if(new_account == ""){
+			document.getElementById("default_change_msg").innerHTML = "<font color='red'>Admin User Name has been entered incorrectly.</font>";
+			return;
+		}
+		if(new_pass == "admin"){
+			document.getElementById("default_change_msg").innerHTML = "<font color='red'>Default password cannot be used. Please select a new password.</font>";
+		}
+		else if((new_pass == new_pass_confirm) && !(new_pass == "" || new_pass_confirm == ""))
+			form.submit();
+		else{
+			document.getElementById("default_change_msg").innerHTML = "<font color='red'>Admin Confirm Password has been entered incorrectly.</font>";
+			return;
+		}
+	}
+	hide_change_table();
+</script>
+</body></html>

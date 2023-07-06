@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="shortcut icon" href="icon/icon_map.ico" />
+<link href="css/misc.css" rel="stylesheet" type="text/css" />
+<title>UPS Remote Management | Login</title>
+<script type="text/javascript">
+window.onload = function(){
+document.getElementById('username').focus();
+}
+</script>
+</head>
+<body>
+<table class="top">
+	<tr>
+		<td valign="bottom"><img src="img/logo.gif" border="0" width="125" height="50" /></td>
+    <td valign="bottom" class="appName" nowrap="nowrap">UPS Remote Management</td>
+	</tr>
+</table><div class="main">
+	<form action="login.cgi" method="get">
+		<table cellspacing="0" cellpadding="0">
+			<tr><td class="loginLb">User name:</td><td><input type="text" id="username" name="username" class="loginField"/></td></tr>
+			<tr><td class="loginLb">Password:</td><td><input type="password" name="password" class="loginField"/></td></tr>
+			<tr>
+				<td colspan="2">
+					<div class="prompt"></div>
+					<input type="submit" name="action" value="LOGIN" class="btn loginBtn"/>
+				</td>
+			</tr>
+		</table>
+	</form>
+</div><div align="center" class="footer">&copy;Middle Atlantic Products, Inc. All Rights Reserved <a href=http://www.middleatlantic.com/ target=_BLANK>www.middleatlantic.com</a> rev 1.1.1</div>
+</body>
+</html>
