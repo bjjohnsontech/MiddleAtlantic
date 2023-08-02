@@ -1,3 +1,4 @@
+#! /c/Users/BJ/AppData/Local/Microsoft/WindowsApps/python3.11.exe
 
 
 import requests
@@ -23,11 +24,14 @@ cookieFile = "C:/Users/BJ/Code/MiddleAtlantic/cookie.pickle"
 
 def save_cookies(requests_cookiejar):
     with open(cookieFile, 'wb') as f:
+        #print(requests_cookiejar)
         pickle.dump(requests_cookiejar, f)
 
 def load_cookies():
     with open(cookieFile, 'rb') as f:
-        return pickle.load(f)
+        p = pickle.load(f)
+        #print(p)
+        return p
 
 ##### Get command line args ####
 #username = requote_uri(args.user)
@@ -36,49 +40,53 @@ def load_cookies():
 
 url = 'http://192.168.50.{0}'.format(args.unit)
 
-def get_login():
-    r = requests.get(url + '/login.html', cookies=load_cookies())
-    save_cookies(r.cookies)
-    return r
-
-def do_login():
-    payload = {'username': args.user, 'password': args.password, 'action': 'LOGIN'}
-    r = requests.get(url + '/login.cgi', params=payload, cookies=load_cookies())
-    save_cookies(r.cookies)
-    return r
+def do_get(URI, payload=None):
+    page = requests.get(url+URI, headers = {
+            'accept': '*/*',
+            'Content-Type': 'multipart/form-data',
+            'User-agent': 'PostmanRuntime/7.32.3'
+        }, cookies=load_cookies(), params=payload, allow_redirects=False)
+    #print(page.cookies)
+    if page.cookies:
+        save_cookies(page.cookies)
+    return page
 
 def get_outlets():
-    r = requests.get(url + '/outlets', cookies=load_cookies())
-    save_cookies(r.cookies)
-    return r
-
-def do_outlet_action():
-    r = requests.get(url + '/outlet_individual.cgi?Out{0}={1}&action=Apply'.format(outlet, action), cookies=load_cookies())
-    save_cookies(r.cookies)
-    return r
-
-def do_logout():
-    r = requests.get(url + '/logout.html', cookies=load_cookies())
-    save_cookies(r.cookies)
-    return r
-
-def parse_outlet(outlet):
-    soup = BeautifulSoup(outlet, 'html.parser')
+    return do_get('/outlet_individual.html')
+    
+def parse_outlet(soup, outlet):
     for label in soup.find_all('label'):
-        if label.get('id') == 'o' + outlet:
-            color = label.b.font.get('color')
+        if label.get('id') == 'o' + str(outlet):
+            #color = label.b.font.get('color')
             status = label.b.font.string
-            return color, status
+            return status
 
 if args.action == 'login':
-    resp = get_login()
-    if resp.status_code == 200:
-        #print(resp.text)
-        pass
-    login = do_login()
-    print(login.url)
-    print(login.status_code, login.text)
-    logout = do_logout()
-    #print(logout.status_code, logout.text)
+    resp = do_get('/login.html')
+    #if resp.status_code == 200:
+    #print(resp.text)
+        #pass
+    login = do_get('/login.cgi', {'username': 'Hope Church', 'password': "Hopemedia1", 'action': 'LOGIN'})
+    location = login.headers['Location'].split('/')
+    if location[-1] == 'error3.html':
+        print('Other')
+    if location[-1] == 'summary.html':
+        print('Success')
 
+elif args.action == 'status':
+    outlets = get_outlets()
+    soup = BeautifulSoup(outlets.text, 'html.parser')
+    if not args.outlet:
+        for i in [1,2,3,4,5,6,7,8]:
+            print(parse_outlet(soup, i))
+    else:
+        print(parse_outlet(soup, args.outlet))
 
+elif args.action == 'logout':
+    try:
+        do_get('/logout.html')
+    except(requests.exceptions.ConnectionError):
+        print('Out')
+
+elif args.action in ['on', 'off'] and args.outlet:
+    do_get('/outlet_individual.cgi', {'Out{0}'.format(args.outlet): args.action, 'action': 'Apply'})

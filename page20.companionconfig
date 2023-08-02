@@ -1,0 +1,1335 @@
+{
+    "version": 3,
+    "type": "page",
+    "controls": {
+        "bank:20-1": {
+            "type": "button",
+            "style": {
+                "text": "Rack UPS",
+                "size": "auto",
+                "png": null,
+                "alignment": "center:center",
+                "pngalignment": "center:center",
+                "color": 16777215,
+                "bgcolor": 0,
+                "show_topbar": "default"
+            },
+            "options": {
+                "relativeDelay": false,
+                "stepAutoProgress": true
+            },
+            "feedbacks": [],
+            "steps": {
+                "0": {
+                    "action_sets": {
+                        "down": [
+                            {
+                                "id": "R0u3D529zBuHZkcJTgpZc",
+                                "action": "set_page_byindex",
+                                "instance": "internal",
+                                "options": {
+                                    "controller": 0,
+                                    "page_from_variable": false,
+                                    "page": 19,
+                                    "page_variable": "1"
+                                },
+                                "delay": 0
+                            }
+                        ],
+                        "up": []
+                    },
+                    "options": {
+                        "runWhileHeld": []
+                    }
+                }
+            }
+        },
+        "bank:20-2": {
+            "type": "button",
+            "style": {
+                "text": "10_1 Status",
+                "size": "auto",
+                "png": null,
+                "alignment": "center:center",
+                "pngalignment": "center:center",
+                "color": 16777215,
+                "bgcolor": 0,
+                "show_topbar": "default"
+            },
+            "options": {
+                "relativeDelay": false,
+                "stepAutoProgress": true
+            },
+            "feedbacks": [
+                {
+                    "id": "gftQj3YjnmF7OpI2kIVLy",
+                    "type": "variable_value",
+                    "instance_id": "internal",
+                    "options": {
+                        "variable": "internal:custom_UPS10_1",
+                        "op": "eq",
+                        "value": "ON"
+                    },
+                    "style": {
+                        "color": 16777215,
+                        "bgcolor": 65280
+                    }
+                },
+                {
+                    "id": "ysAFlvq2M-yjI06fPtsdF",
+                    "type": "variable_value",
+                    "instance_id": "internal",
+                    "options": {
+                        "variable": "internal:custom_UPS10_1",
+                        "op": "eq",
+                        "value": "OFF"
+                    },
+                    "style": {
+                        "color": 16777215,
+                        "bgcolor": 16711680
+                    }
+                },
+                {
+                    "id": "ayH1-0uTGSiyddurmseSe",
+                    "type": "variable_value",
+                    "instance_id": "internal",
+                    "options": {
+                        "variable": "internal:custom_UPS10_1",
+                        "op": "eq",
+                        "value": "OFF*"
+                    },
+                    "style": {
+                        "color": 16777215,
+                        "bgcolor": 16777024
+                    }
+                },
+                {
+                    "id": "MFXPlpf3OloX4Bk_gm8h_",
+                    "type": "variable_value",
+                    "instance_id": "internal",
+                    "options": {
+                        "variable": "internal:custom_UPS10_1",
+                        "op": "eq",
+                        "value": "ON*"
+                    },
+                    "style": {
+                        "color": 16777215,
+                        "bgcolor": 16777024
+                    }
+                }
+            ],
+            "steps": {
+                "0": {
+                    "action_sets": {
+                        "down": [
+                            {
+                                "id": "hq9TjtD_s6deC0urih2WK",
+                                "action": "button_pressrelease_condition",
+                                "instance": "internal",
+                                "options": {
+                                    "variable": "internal:custom_UPS10_1",
+                                    "op": "eq",
+                                    "value": "ON",
+                                    "page_from_variable": false,
+                                    "page": 90,
+                                    "page_variable": "1",
+                                    "bank_from_variable": false,
+                                    "bank": 17,
+                                    "bank_variable": "1"
+                                },
+                                "delay": 0
+                            },
+                            {
+                                "id": "aCnm-Q2hUutrt3JjCxi-Q",
+                                "action": "button_pressrelease_condition",
+                                "instance": "internal",
+                                "options": {
+                                    "variable": "internal:custom_UPS10_1",
+                                    "op": "eq",
+                                    "value": "OFF",
+                                    "page_from_variable": false,
+                                    "page": 90,
+                                    "page_variable": "1",
+                                    "bank_from_variable": false,
+                                    "bank": 1,
+                                    "bank_variable": "1"
+                                },
+                                "delay": 0
+                            },
+                            {
+                                "id": "UOPeGphccI25w-QInorg3",
+                                "action": "button_pressrelease_condition",
+                                "instance": "internal",
+                                "options": {
+                                    "variable": "internal:custom_UPS10_1",
+                                    "op": "eq",
+                                    "value": "ON*",
+                                    "page_from_variable": false,
+                                    "page": 90,
+                                    "page_variable": "1",
+                                    "bank_from_variable": false,
+                                    "bank": 9,
+                                    "bank_variable": "1"
+                                },
+                                "delay": 0
+                            },
+                            {
+                                "id": "HBCw_14STs2nwk9Z1pxdT",
+                                "action": "button_pressrelease_condition",
+                                "instance": "internal",
+                                "options": {
+                                    "variable": "internal:custom_UPS10_1",
+                                    "op": "eq",
+                                    "value": "OFF*",
+                                    "page_from_variable": false,
+                                    "page": 90,
+                                    "page_variable": "1",
+                                    "bank_from_variable": false,
+                                    "bank": 9,
+                                    "bank_variable": "1"
+                                },
+                                "delay": 0
+                            }
+                        ],
+                        "up": []
+                    },
+                    "options": {
+                        "runWhileHeld": []
+                    }
+                }
+            }
+        },
+        "bank:20-3": {
+            "type": "button",
+            "style": {
+                "text": "10_2 Status",
+                "size": "auto",
+                "png": null,
+                "alignment": "center:center",
+                "pngalignment": "center:center",
+                "color": 16777215,
+                "bgcolor": 0,
+                "show_topbar": "default"
+            },
+            "options": {
+                "relativeDelay": false,
+                "stepAutoProgress": true
+            },
+            "feedbacks": [
+                {
+                    "id": "gftQj3YjnmF7OpI2kIVLy",
+                    "type": "variable_value",
+                    "instance_id": "internal",
+                    "options": {
+                        "variable": "internal:custom_UPS10_2",
+                        "op": "eq",
+                        "value": "ON"
+                    },
+                    "style": {
+                        "color": 16777215,
+                        "bgcolor": 65280
+                    }
+                },
+                {
+                    "id": "ysAFlvq2M-yjI06fPtsdF",
+                    "type": "variable_value",
+                    "instance_id": "internal",
+                    "options": {
+                        "variable": "internal:custom_UPS10_2",
+                        "op": "eq",
+                        "value": "OFF"
+                    },
+                    "style": {
+                        "color": 16777215,
+                        "bgcolor": 16711680
+                    }
+                },
+                {
+                    "id": "ayH1-0uTGSiyddurmseSe",
+                    "type": "variable_value",
+                    "instance_id": "internal",
+                    "options": {
+                        "variable": "internal:custom_UPS10_2",
+                        "op": "eq",
+                        "value": "OFF*"
+                    },
+                    "style": {
+                        "color": 16777215,
+                        "bgcolor": 16777024
+                    }
+                },
+                {
+                    "id": "MFXPlpf3OloX4Bk_gm8h_",
+                    "type": "variable_value",
+                    "instance_id": "internal",
+                    "options": {
+                        "variable": "internal:custom_UPS10_2",
+                        "op": "eq",
+                        "value": "ON*"
+                    },
+                    "style": {
+                        "color": 16777215,
+                        "bgcolor": 16777024
+                    }
+                }
+            ],
+            "steps": {
+                "0": {
+                    "action_sets": {
+                        "down": [
+                            {
+                                "id": "hq9TjtD_s6deC0urih2WK",
+                                "action": "button_pressrelease_condition",
+                                "instance": "internal",
+                                "options": {
+                                    "variable": "internal:custom_UPS10_2",
+                                    "op": "eq",
+                                    "value": "ON",
+                                    "page_from_variable": false,
+                                    "page": 90,
+                                    "page_variable": "1",
+                                    "bank_from_variable": false,
+                                    "bank": 18,
+                                    "bank_variable": "1"
+                                },
+                                "delay": 0
+                            },
+                            {
+                                "id": "aCnm-Q2hUutrt3JjCxi-Q",
+                                "action": "button_pressrelease_condition",
+                                "instance": "internal",
+                                "options": {
+                                    "variable": "internal:custom_UPS10_2",
+                                    "op": "eq",
+                                    "value": "OFF",
+                                    "page_from_variable": false,
+                                    "page": 90,
+                                    "page_variable": "1",
+                                    "bank_from_variable": false,
+                                    "bank": 2,
+                                    "bank_variable": "1"
+                                },
+                                "delay": 0
+                            },
+                            {
+                                "id": "UOPeGphccI25w-QInorg3",
+                                "action": "button_pressrelease_condition",
+                                "instance": "internal",
+                                "options": {
+                                    "variable": "internal:custom_UPS10_2",
+                                    "op": "eq",
+                                    "value": "ON*",
+                                    "page_from_variable": false,
+                                    "page": 90,
+                                    "page_variable": "1",
+                                    "bank_from_variable": false,
+                                    "bank": 10,
+                                    "bank_variable": "1"
+                                },
+                                "delay": 0
+                            },
+                            {
+                                "id": "HBCw_14STs2nwk9Z1pxdT",
+                                "action": "button_pressrelease_condition",
+                                "instance": "internal",
+                                "options": {
+                                    "variable": "internal:custom_UPS10_2",
+                                    "op": "eq",
+                                    "value": "OFF*",
+                                    "page_from_variable": false,
+                                    "page": 90,
+                                    "page_variable": "1",
+                                    "bank_from_variable": false,
+                                    "bank": 10,
+                                    "bank_variable": "1"
+                                },
+                                "delay": 0
+                            }
+                        ],
+                        "up": []
+                    },
+                    "options": {
+                        "runWhileHeld": []
+                    }
+                }
+            }
+        },
+        "bank:20-4": {
+            "type": "button",
+            "style": {
+                "text": "10_3 Status",
+                "size": "auto",
+                "png": null,
+                "alignment": "center:center",
+                "pngalignment": "center:center",
+                "color": 16777215,
+                "bgcolor": 0,
+                "show_topbar": "default"
+            },
+            "options": {
+                "relativeDelay": false,
+                "stepAutoProgress": true
+            },
+            "feedbacks": [
+                {
+                    "id": "gftQj3YjnmF7OpI2kIVLy",
+                    "type": "variable_value",
+                    "instance_id": "internal",
+                    "options": {
+                        "variable": "internal:custom_UPS10_3",
+                        "op": "eq",
+                        "value": "ON"
+                    },
+                    "style": {
+                        "color": 16777215,
+                        "bgcolor": 65280
+                    }
+                },
+                {
+                    "id": "ysAFlvq2M-yjI06fPtsdF",
+                    "type": "variable_value",
+                    "instance_id": "internal",
+                    "options": {
+                        "variable": "internal:custom_UPS10_3",
+                        "op": "eq",
+                        "value": "OFF"
+                    },
+                    "style": {
+                        "color": 16777215,
+                        "bgcolor": 16711680
+                    }
+                },
+                {
+                    "id": "ayH1-0uTGSiyddurmseSe",
+                    "type": "variable_value",
+                    "instance_id": "internal",
+                    "options": {
+                        "variable": "internal:custom_UPS10_3",
+                        "op": "eq",
+                        "value": "OFF*"
+                    },
+                    "style": {
+                        "color": 16777215,
+                        "bgcolor": 16777024
+                    }
+                },
+                {
+                    "id": "MFXPlpf3OloX4Bk_gm8h_",
+                    "type": "variable_value",
+                    "instance_id": "internal",
+                    "options": {
+                        "variable": "internal:custom_UPS10_3",
+                        "op": "eq",
+                        "value": "ON*"
+                    },
+                    "style": {
+                        "color": 16777215,
+                        "bgcolor": 16777024
+                    }
+                }
+            ],
+            "steps": {
+                "0": {
+                    "action_sets": {
+                        "down": [
+                            {
+                                "id": "hq9TjtD_s6deC0urih2WK",
+                                "action": "button_pressrelease_condition",
+                                "instance": "internal",
+                                "options": {
+                                    "variable": "internal:custom_UPS10_3",
+                                    "op": "eq",
+                                    "value": "ON",
+                                    "page_from_variable": false,
+                                    "page": 90,
+                                    "page_variable": "1",
+                                    "bank_from_variable": false,
+                                    "bank": 19,
+                                    "bank_variable": "1"
+                                },
+                                "delay": 0
+                            },
+                            {
+                                "id": "aCnm-Q2hUutrt3JjCxi-Q",
+                                "action": "button_pressrelease_condition",
+                                "instance": "internal",
+                                "options": {
+                                    "variable": "internal:custom_UPS10_3",
+                                    "op": "eq",
+                                    "value": "OFF",
+                                    "page_from_variable": false,
+                                    "page": 90,
+                                    "page_variable": "1",
+                                    "bank_from_variable": false,
+                                    "bank": 3,
+                                    "bank_variable": "1"
+                                },
+                                "delay": 0
+                            },
+                            {
+                                "id": "UOPeGphccI25w-QInorg3",
+                                "action": "button_pressrelease_condition",
+                                "instance": "internal",
+                                "options": {
+                                    "variable": "internal:custom_UPS10_3",
+                                    "op": "eq",
+                                    "value": "ON*",
+                                    "page_from_variable": false,
+                                    "page": 90,
+                                    "page_variable": "1",
+                                    "bank_from_variable": false,
+                                    "bank": 11,
+                                    "bank_variable": "1"
+                                },
+                                "delay": 0
+                            },
+                            {
+                                "id": "HBCw_14STs2nwk9Z1pxdT",
+                                "action": "button_pressrelease_condition",
+                                "instance": "internal",
+                                "options": {
+                                    "variable": "internal:custom_UPS10_3",
+                                    "op": "eq",
+                                    "value": "OFF*",
+                                    "page_from_variable": false,
+                                    "page": 90,
+                                    "page_variable": "1",
+                                    "bank_from_variable": false,
+                                    "bank": 11,
+                                    "bank_variable": "1"
+                                },
+                                "delay": 0
+                            }
+                        ],
+                        "up": []
+                    },
+                    "options": {
+                        "runWhileHeld": []
+                    }
+                }
+            }
+        },
+        "bank:20-5": {
+            "type": "button",
+            "style": {
+                "text": "10_4 Status",
+                "size": "auto",
+                "png": null,
+                "alignment": "center:center",
+                "pngalignment": "center:center",
+                "color": 16777215,
+                "bgcolor": 0,
+                "show_topbar": "default"
+            },
+            "options": {
+                "relativeDelay": false,
+                "stepAutoProgress": true
+            },
+            "feedbacks": [
+                {
+                    "id": "gftQj3YjnmF7OpI2kIVLy",
+                    "type": "variable_value",
+                    "instance_id": "internal",
+                    "options": {
+                        "variable": "internal:custom_UPS10_4",
+                        "op": "eq",
+                        "value": "ON"
+                    },
+                    "style": {
+                        "color": 16777215,
+                        "bgcolor": 65280
+                    }
+                },
+                {
+                    "id": "ysAFlvq2M-yjI06fPtsdF",
+                    "type": "variable_value",
+                    "instance_id": "internal",
+                    "options": {
+                        "variable": "internal:custom_UPS10_4",
+                        "op": "eq",
+                        "value": "OFF"
+                    },
+                    "style": {
+                        "color": 16777215,
+                        "bgcolor": 16711680
+                    }
+                },
+                {
+                    "id": "ayH1-0uTGSiyddurmseSe",
+                    "type": "variable_value",
+                    "instance_id": "internal",
+                    "options": {
+                        "variable": "internal:custom_UPS10_4",
+                        "op": "eq",
+                        "value": "OFF*"
+                    },
+                    "style": {
+                        "color": 16777215,
+                        "bgcolor": 16777024
+                    }
+                },
+                {
+                    "id": "MFXPlpf3OloX4Bk_gm8h_",
+                    "type": "variable_value",
+                    "instance_id": "internal",
+                    "options": {
+                        "variable": "internal:custom_UPS10_4",
+                        "op": "eq",
+                        "value": "ON*"
+                    },
+                    "style": {
+                        "color": 16777215,
+                        "bgcolor": 16777024
+                    }
+                }
+            ],
+            "steps": {
+                "0": {
+                    "action_sets": {
+                        "down": [
+                            {
+                                "id": "hq9TjtD_s6deC0urih2WK",
+                                "action": "button_pressrelease_condition",
+                                "instance": "internal",
+                                "options": {
+                                    "variable": "internal:custom_UPS10_4",
+                                    "op": "eq",
+                                    "value": "ON",
+                                    "page_from_variable": false,
+                                    "page": 90,
+                                    "page_variable": "1",
+                                    "bank_from_variable": false,
+                                    "bank": 20,
+                                    "bank_variable": "1"
+                                },
+                                "delay": 0
+                            },
+                            {
+                                "id": "aCnm-Q2hUutrt3JjCxi-Q",
+                                "action": "button_pressrelease_condition",
+                                "instance": "internal",
+                                "options": {
+                                    "variable": "internal:custom_UPS10_4",
+                                    "op": "eq",
+                                    "value": "OFF",
+                                    "page_from_variable": false,
+                                    "page": 90,
+                                    "page_variable": "1",
+                                    "bank_from_variable": false,
+                                    "bank": 4,
+                                    "bank_variable": "1"
+                                },
+                                "delay": 0
+                            },
+                            {
+                                "id": "UOPeGphccI25w-QInorg3",
+                                "action": "button_pressrelease_condition",
+                                "instance": "internal",
+                                "options": {
+                                    "variable": "internal:custom_UPS10_4",
+                                    "op": "eq",
+                                    "value": "ON*",
+                                    "page_from_variable": false,
+                                    "page": 90,
+                                    "page_variable": "1",
+                                    "bank_from_variable": false,
+                                    "bank": 12,
+                                    "bank_variable": "1"
+                                },
+                                "delay": 0
+                            },
+                            {
+                                "id": "HBCw_14STs2nwk9Z1pxdT",
+                                "action": "button_pressrelease_condition",
+                                "instance": "internal",
+                                "options": {
+                                    "variable": "internal:custom_UPS10_4",
+                                    "op": "eq",
+                                    "value": "OFF*",
+                                    "page_from_variable": false,
+                                    "page": 90,
+                                    "page_variable": "1",
+                                    "bank_from_variable": false,
+                                    "bank": 12,
+                                    "bank_variable": "1"
+                                },
+                                "delay": 0
+                            }
+                        ],
+                        "up": []
+                    },
+                    "options": {
+                        "runWhileHeld": []
+                    }
+                }
+            }
+        },
+        "bank:20-9": {
+            "type": "button",
+            "style": {
+                "text": "Go Home",
+                "size": "auto",
+                "png": null,
+                "alignment": "center:center",
+                "pngalignment": "center:center",
+                "color": 16777215,
+                "bgcolor": 0,
+                "show_topbar": "default"
+            },
+            "options": {
+                "relativeDelay": false,
+                "stepAutoProgress": true
+            },
+            "feedbacks": [],
+            "steps": {
+                "0": {
+                    "action_sets": {
+                        "down": [
+                            {
+                                "id": "3Bmn-c1mc4gk4BZX349-7",
+                                "action": "set_page_byindex",
+                                "instance": "internal",
+                                "options": {
+                                    "controller": 0,
+                                    "page_from_variable": false,
+                                    "page": 1,
+                                    "page_variable": "1"
+                                },
+                                "delay": 0
+                            }
+                        ],
+                        "up": []
+                    },
+                    "options": {
+                        "runWhileHeld": []
+                    }
+                }
+            }
+        },
+        "bank:20-10": {
+            "type": "button",
+            "style": {
+                "text": "10_5 Status",
+                "size": "auto",
+                "png": null,
+                "alignment": "center:center",
+                "pngalignment": "center:center",
+                "color": 16777215,
+                "bgcolor": 0,
+                "show_topbar": "default"
+            },
+            "options": {
+                "relativeDelay": false,
+                "stepAutoProgress": true
+            },
+            "feedbacks": [
+                {
+                    "id": "gftQj3YjnmF7OpI2kIVLy",
+                    "type": "variable_value",
+                    "instance_id": "internal",
+                    "options": {
+                        "variable": "internal:custom_UPS10_5",
+                        "op": "eq",
+                        "value": "ON"
+                    },
+                    "style": {
+                        "color": 16777215,
+                        "bgcolor": 65280
+                    }
+                },
+                {
+                    "id": "ysAFlvq2M-yjI06fPtsdF",
+                    "type": "variable_value",
+                    "instance_id": "internal",
+                    "options": {
+                        "variable": "internal:custom_UPS10_5",
+                        "op": "eq",
+                        "value": "OFF"
+                    },
+                    "style": {
+                        "color": 16777215,
+                        "bgcolor": 16711680
+                    }
+                },
+                {
+                    "id": "ayH1-0uTGSiyddurmseSe",
+                    "type": "variable_value",
+                    "instance_id": "internal",
+                    "options": {
+                        "variable": "internal:custom_UPS10_5",
+                        "op": "eq",
+                        "value": "OFF*"
+                    },
+                    "style": {
+                        "color": 16777215,
+                        "bgcolor": 16777024
+                    }
+                },
+                {
+                    "id": "MFXPlpf3OloX4Bk_gm8h_",
+                    "type": "variable_value",
+                    "instance_id": "internal",
+                    "options": {
+                        "variable": "internal:custom_UPS10_5",
+                        "op": "eq",
+                        "value": "ON*"
+                    },
+                    "style": {
+                        "color": 16777215,
+                        "bgcolor": 16777024
+                    }
+                }
+            ],
+            "steps": {
+                "0": {
+                    "action_sets": {
+                        "down": [
+                            {
+                                "id": "hq9TjtD_s6deC0urih2WK",
+                                "action": "button_pressrelease_condition",
+                                "instance": "internal",
+                                "options": {
+                                    "variable": "internal:custom_UPS10_5",
+                                    "op": "eq",
+                                    "value": "ON",
+                                    "page_from_variable": false,
+                                    "page": 90,
+                                    "page_variable": "1",
+                                    "bank_from_variable": false,
+                                    "bank": 21,
+                                    "bank_variable": "1"
+                                },
+                                "delay": 0
+                            },
+                            {
+                                "id": "aCnm-Q2hUutrt3JjCxi-Q",
+                                "action": "button_pressrelease_condition",
+                                "instance": "internal",
+                                "options": {
+                                    "variable": "internal:custom_UPS10_5",
+                                    "op": "eq",
+                                    "value": "OFF",
+                                    "page_from_variable": false,
+                                    "page": 90,
+                                    "page_variable": "1",
+                                    "bank_from_variable": false,
+                                    "bank": 5,
+                                    "bank_variable": "1"
+                                },
+                                "delay": 0
+                            },
+                            {
+                                "id": "UOPeGphccI25w-QInorg3",
+                                "action": "button_pressrelease_condition",
+                                "instance": "internal",
+                                "options": {
+                                    "variable": "internal:custom_UPS10_5",
+                                    "op": "eq",
+                                    "value": "ON*",
+                                    "page_from_variable": false,
+                                    "page": 90,
+                                    "page_variable": "1",
+                                    "bank_from_variable": false,
+                                    "bank": 13,
+                                    "bank_variable": "1"
+                                },
+                                "delay": 0
+                            },
+                            {
+                                "id": "HBCw_14STs2nwk9Z1pxdT",
+                                "action": "button_pressrelease_condition",
+                                "instance": "internal",
+                                "options": {
+                                    "variable": "internal:custom_UPS10_5",
+                                    "op": "eq",
+                                    "value": "OFF*",
+                                    "page_from_variable": false,
+                                    "page": 90,
+                                    "page_variable": "1",
+                                    "bank_from_variable": false,
+                                    "bank": 13,
+                                    "bank_variable": "1"
+                                },
+                                "delay": 0
+                            }
+                        ],
+                        "up": []
+                    },
+                    "options": {
+                        "runWhileHeld": []
+                    }
+                }
+            }
+        },
+        "bank:20-11": {
+            "type": "button",
+            "style": {
+                "text": "10_6 Status",
+                "size": "auto",
+                "png": null,
+                "alignment": "center:center",
+                "pngalignment": "center:center",
+                "color": 16777215,
+                "bgcolor": 0,
+                "show_topbar": "default"
+            },
+            "options": {
+                "relativeDelay": false,
+                "stepAutoProgress": true
+            },
+            "feedbacks": [
+                {
+                    "id": "gftQj3YjnmF7OpI2kIVLy",
+                    "type": "variable_value",
+                    "instance_id": "internal",
+                    "options": {
+                        "variable": "internal:custom_UPS10_6",
+                        "op": "eq",
+                        "value": "ON"
+                    },
+                    "style": {
+                        "color": 16777215,
+                        "bgcolor": 65280
+                    }
+                },
+                {
+                    "id": "ysAFlvq2M-yjI06fPtsdF",
+                    "type": "variable_value",
+                    "instance_id": "internal",
+                    "options": {
+                        "variable": "internal:custom_UPS10_6",
+                        "op": "eq",
+                        "value": "OFF"
+                    },
+                    "style": {
+                        "color": 16777215,
+                        "bgcolor": 16711680
+                    }
+                },
+                {
+                    "id": "ayH1-0uTGSiyddurmseSe",
+                    "type": "variable_value",
+                    "instance_id": "internal",
+                    "options": {
+                        "variable": "internal:custom_UPS10_6",
+                        "op": "eq",
+                        "value": "OFF*"
+                    },
+                    "style": {
+                        "color": 16777215,
+                        "bgcolor": 16777024
+                    }
+                },
+                {
+                    "id": "MFXPlpf3OloX4Bk_gm8h_",
+                    "type": "variable_value",
+                    "instance_id": "internal",
+                    "options": {
+                        "variable": "internal:custom_UPS10_6",
+                        "op": "eq",
+                        "value": "ON*"
+                    },
+                    "style": {
+                        "color": 16777215,
+                        "bgcolor": 16777024
+                    }
+                }
+            ],
+            "steps": {
+                "0": {
+                    "action_sets": {
+                        "down": [
+                            {
+                                "id": "hq9TjtD_s6deC0urih2WK",
+                                "action": "button_pressrelease_condition",
+                                "instance": "internal",
+                                "options": {
+                                    "variable": "internal:custom_UPS10_6",
+                                    "op": "eq",
+                                    "value": "ON",
+                                    "page_from_variable": false,
+                                    "page": 90,
+                                    "page_variable": "1",
+                                    "bank_from_variable": false,
+                                    "bank": 22,
+                                    "bank_variable": "1"
+                                },
+                                "delay": 0
+                            },
+                            {
+                                "id": "aCnm-Q2hUutrt3JjCxi-Q",
+                                "action": "button_pressrelease_condition",
+                                "instance": "internal",
+                                "options": {
+                                    "variable": "internal:custom_UPS10_6",
+                                    "op": "eq",
+                                    "value": "OFF",
+                                    "page_from_variable": false,
+                                    "page": 90,
+                                    "page_variable": "1",
+                                    "bank_from_variable": false,
+                                    "bank": 6,
+                                    "bank_variable": "1"
+                                },
+                                "delay": 0
+                            },
+                            {
+                                "id": "UOPeGphccI25w-QInorg3",
+                                "action": "button_pressrelease_condition",
+                                "instance": "internal",
+                                "options": {
+                                    "variable": "internal:custom_UPS10_6",
+                                    "op": "eq",
+                                    "value": "ON*",
+                                    "page_from_variable": false,
+                                    "page": 90,
+                                    "page_variable": "1",
+                                    "bank_from_variable": false,
+                                    "bank": 14,
+                                    "bank_variable": "1"
+                                },
+                                "delay": 0
+                            },
+                            {
+                                "id": "HBCw_14STs2nwk9Z1pxdT",
+                                "action": "button_pressrelease_condition",
+                                "instance": "internal",
+                                "options": {
+                                    "variable": "internal:custom_UPS10_6",
+                                    "op": "eq",
+                                    "value": "OFF*",
+                                    "page_from_variable": false,
+                                    "page": 90,
+                                    "page_variable": "1",
+                                    "bank_from_variable": false,
+                                    "bank": 14,
+                                    "bank_variable": "1"
+                                },
+                                "delay": 0
+                            }
+                        ],
+                        "up": []
+                    },
+                    "options": {
+                        "runWhileHeld": []
+                    }
+                }
+            }
+        },
+        "bank:20-12": {
+            "type": "button",
+            "style": {
+                "text": "10_7 Status",
+                "size": "auto",
+                "png": null,
+                "alignment": "center:center",
+                "pngalignment": "center:center",
+                "color": 16777215,
+                "bgcolor": 0,
+                "show_topbar": "default"
+            },
+            "options": {
+                "relativeDelay": false,
+                "stepAutoProgress": true
+            },
+            "feedbacks": [
+                {
+                    "id": "gftQj3YjnmF7OpI2kIVLy",
+                    "type": "variable_value",
+                    "instance_id": "internal",
+                    "options": {
+                        "variable": "internal:custom_UPS10_7",
+                        "op": "eq",
+                        "value": "ON"
+                    },
+                    "style": {
+                        "color": 16777215,
+                        "bgcolor": 65280
+                    }
+                },
+                {
+                    "id": "ysAFlvq2M-yjI06fPtsdF",
+                    "type": "variable_value",
+                    "instance_id": "internal",
+                    "options": {
+                        "variable": "internal:custom_UPS10_7",
+                        "op": "eq",
+                        "value": "OFF"
+                    },
+                    "style": {
+                        "color": 16777215,
+                        "bgcolor": 16711680
+                    }
+                },
+                {
+                    "id": "ayH1-0uTGSiyddurmseSe",
+                    "type": "variable_value",
+                    "instance_id": "internal",
+                    "options": {
+                        "variable": "internal:custom_UPS10_7",
+                        "op": "eq",
+                        "value": "OFF*"
+                    },
+                    "style": {
+                        "color": 16777215,
+                        "bgcolor": 16777024
+                    }
+                },
+                {
+                    "id": "MFXPlpf3OloX4Bk_gm8h_",
+                    "type": "variable_value",
+                    "instance_id": "internal",
+                    "options": {
+                        "variable": "internal:custom_UPS10_7",
+                        "op": "eq",
+                        "value": "ON*"
+                    },
+                    "style": {
+                        "color": 16777215,
+                        "bgcolor": 16777024
+                    }
+                }
+            ],
+            "steps": {
+                "0": {
+                    "action_sets": {
+                        "down": [
+                            {
+                                "id": "hq9TjtD_s6deC0urih2WK",
+                                "action": "button_pressrelease_condition",
+                                "instance": "internal",
+                                "options": {
+                                    "variable": "internal:custom_UPS10_7",
+                                    "op": "eq",
+                                    "value": "ON",
+                                    "page_from_variable": false,
+                                    "page": 90,
+                                    "page_variable": "1",
+                                    "bank_from_variable": false,
+                                    "bank": 23,
+                                    "bank_variable": "1"
+                                },
+                                "delay": 0
+                            },
+                            {
+                                "id": "aCnm-Q2hUutrt3JjCxi-Q",
+                                "action": "button_pressrelease_condition",
+                                "instance": "internal",
+                                "options": {
+                                    "variable": "internal:custom_UPS10_7",
+                                    "op": "eq",
+                                    "value": "OFF",
+                                    "page_from_variable": false,
+                                    "page": 90,
+                                    "page_variable": "1",
+                                    "bank_from_variable": false,
+                                    "bank": 7,
+                                    "bank_variable": "1"
+                                },
+                                "delay": 0
+                            },
+                            {
+                                "id": "UOPeGphccI25w-QInorg3",
+                                "action": "button_pressrelease_condition",
+                                "instance": "internal",
+                                "options": {
+                                    "variable": "internal:custom_UPS10_7",
+                                    "op": "eq",
+                                    "value": "ON*",
+                                    "page_from_variable": false,
+                                    "page": 90,
+                                    "page_variable": "1",
+                                    "bank_from_variable": false,
+                                    "bank": 15,
+                                    "bank_variable": "1"
+                                },
+                                "delay": 0
+                            },
+                            {
+                                "id": "HBCw_14STs2nwk9Z1pxdT",
+                                "action": "button_pressrelease_condition",
+                                "instance": "internal",
+                                "options": {
+                                    "variable": "internal:custom_UPS10_7",
+                                    "op": "eq",
+                                    "value": "OFF*",
+                                    "page_from_variable": false,
+                                    "page": 90,
+                                    "page_variable": "1",
+                                    "bank_from_variable": false,
+                                    "bank": 15,
+                                    "bank_variable": "1"
+                                },
+                                "delay": 0
+                            }
+                        ],
+                        "up": []
+                    },
+                    "options": {
+                        "runWhileHeld": []
+                    }
+                }
+            }
+        },
+        "bank:20-13": {
+            "type": "button",
+            "style": {
+                "text": "10_8 Status",
+                "size": "auto",
+                "png": null,
+                "alignment": "center:center",
+                "pngalignment": "center:center",
+                "color": 16777215,
+                "bgcolor": 0,
+                "show_topbar": "default"
+            },
+            "options": {
+                "relativeDelay": false,
+                "stepAutoProgress": true
+            },
+            "feedbacks": [
+                {
+                    "id": "gftQj3YjnmF7OpI2kIVLy",
+                    "type": "variable_value",
+                    "instance_id": "internal",
+                    "options": {
+                        "variable": "internal:custom_UPS10_8",
+                        "op": "eq",
+                        "value": "ON"
+                    },
+                    "style": {
+                        "color": 16777215,
+                        "bgcolor": 65280
+                    }
+                },
+                {
+                    "id": "ysAFlvq2M-yjI06fPtsdF",
+                    "type": "variable_value",
+                    "instance_id": "internal",
+                    "options": {
+                        "variable": "internal:custom_UPS10_8",
+                        "op": "eq",
+                        "value": "OFF"
+                    },
+                    "style": {
+                        "color": 16777215,
+                        "bgcolor": 16711680
+                    }
+                },
+                {
+                    "id": "ayH1-0uTGSiyddurmseSe",
+                    "type": "variable_value",
+                    "instance_id": "internal",
+                    "options": {
+                        "variable": "internal:custom_UPS10_8",
+                        "op": "eq",
+                        "value": "OFF*"
+                    },
+                    "style": {
+                        "color": 16777215,
+                        "bgcolor": 16777024
+                    }
+                },
+                {
+                    "id": "MFXPlpf3OloX4Bk_gm8h_",
+                    "type": "variable_value",
+                    "instance_id": "internal",
+                    "options": {
+                        "variable": "internal:custom_UPS10_8",
+                        "op": "eq",
+                        "value": "ON*"
+                    },
+                    "style": {
+                        "color": 16777215,
+                        "bgcolor": 16777024
+                    }
+                }
+            ],
+            "steps": {
+                "0": {
+                    "action_sets": {
+                        "down": [
+                            {
+                                "id": "hq9TjtD_s6deC0urih2WK",
+                                "action": "button_pressrelease_condition",
+                                "instance": "internal",
+                                "options": {
+                                    "variable": "internal:custom_UPS10_8",
+                                    "op": "eq",
+                                    "value": "ON",
+                                    "page_from_variable": false,
+                                    "page": 90,
+                                    "page_variable": "1",
+                                    "bank_from_variable": false,
+                                    "bank": 24,
+                                    "bank_variable": "1"
+                                },
+                                "delay": 0
+                            },
+                            {
+                                "id": "aCnm-Q2hUutrt3JjCxi-Q",
+                                "action": "button_pressrelease_condition",
+                                "instance": "internal",
+                                "options": {
+                                    "variable": "internal:custom_UPS10_8",
+                                    "op": "eq",
+                                    "value": "OFF",
+                                    "page_from_variable": false,
+                                    "page": 90,
+                                    "page_variable": "1",
+                                    "bank_from_variable": false,
+                                    "bank": 8,
+                                    "bank_variable": "1"
+                                },
+                                "delay": 0
+                            },
+                            {
+                                "id": "UOPeGphccI25w-QInorg3",
+                                "action": "button_pressrelease_condition",
+                                "instance": "internal",
+                                "options": {
+                                    "variable": "internal:custom_UPS10_8",
+                                    "op": "eq",
+                                    "value": "ON*",
+                                    "page_from_variable": false,
+                                    "page": 90,
+                                    "page_variable": "1",
+                                    "bank_from_variable": false,
+                                    "bank": 16,
+                                    "bank_variable": "1"
+                                },
+                                "delay": 0
+                            },
+                            {
+                                "id": "HBCw_14STs2nwk9Z1pxdT",
+                                "action": "button_pressrelease_condition",
+                                "instance": "internal",
+                                "options": {
+                                    "variable": "internal:custom_UPS10_8",
+                                    "op": "eq",
+                                    "value": "OFF*",
+                                    "page_from_variable": false,
+                                    "page": 90,
+                                    "page_variable": "1",
+                                    "bank_from_variable": false,
+                                    "bank": 16,
+                                    "bank_variable": "1"
+                                },
+                                "delay": 0
+                            }
+                        ],
+                        "up": []
+                    },
+                    "options": {
+                        "runWhileHeld": []
+                    }
+                }
+            }
+        }
+    },
+    "page": {
+        "name": "Broadcast 1"
+    },
+    "instances": {},
+    "oldPageNumber": 20
+}

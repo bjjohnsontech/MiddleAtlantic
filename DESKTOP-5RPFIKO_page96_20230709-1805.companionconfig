@@ -1,0 +1,305 @@
+{
+    "version": 3,
+    "type": "page",
+    "controls": {
+        "bank:96-1": {
+            "type": "button",
+            "style": {
+                "text": "10_1 ON",
+                "size": "auto",
+                "png": null,
+                "alignment": "center:center",
+                "pngalignment": "center:center",
+                "color": 16777215,
+                "bgcolor": 0,
+                "show_topbar": "default"
+            },
+            "options": {
+                "relativeDelay": false,
+                "stepAutoProgress": true
+            },
+            "feedbacks": [
+                {
+                    "id": "pO7mf2uB4gK-PmTWLuUN_",
+                    "type": "variable_value",
+                    "instance_id": "internal",
+                    "options": {
+                        "variable": "internal:custom_UPS10_1",
+                        "op": "eq",
+                        "value": "ON"
+                    },
+                    "style": {
+                        "color": 16777215,
+                        "bgcolor": 65280
+                    }
+                },
+                {
+                    "id": "t9zHmqRCXjYw6YAAVDfSk",
+                    "type": "variable_value",
+                    "instance_id": "internal",
+                    "options": {
+                        "variable": "internal:custom_UPS10_1",
+                        "op": "eq",
+                        "value": "OFF"
+                    },
+                    "style": {
+                        "color": 16777215,
+                        "bgcolor": 16711680
+                    }
+                },
+                {
+                    "id": "FUXto1Al6muxvEGOqShZo",
+                    "type": "variable_value",
+                    "instance_id": "internal",
+                    "options": {
+                        "variable": "internal:custom_UPS10_1",
+                        "op": "eq",
+                        "value": "OFF*"
+                    },
+                    "style": {
+                        "color": 16777215,
+                        "bgcolor": 16777024
+                    }
+                },
+                {
+                    "id": "Y-Di06PH0lWl1W-HRx9sE",
+                    "type": "variable_value",
+                    "instance_id": "internal",
+                    "options": {
+                        "variable": "internal:custom_UPS10_1",
+                        "op": "eq",
+                        "value": "ON*"
+                    },
+                    "style": {
+                        "color": 16777215,
+                        "bgcolor": 16777024
+                    }
+                }
+            ],
+            "steps": {
+                "0": {
+                    "action_sets": {
+                        "down": [
+                            {
+                                "id": "A75Ui1vcdTO4HSYN7rF3f",
+                                "action": "exec",
+                                "instance": "internal",
+                                "options": {
+                                    "path": "$(internal:custom_controlPath) 10 on -o 1",
+                                    "timeout": 20000,
+                                    "targetVariable": "UPS10_1"
+                                },
+                                "delay": 0
+                            }
+                        ],
+                        "up": []
+                    },
+                    "options": {
+                        "runWhileHeld": []
+                    }
+                }
+            }
+        },
+        "bank:96-9": {
+            "type": "button",
+            "style": {
+                "text": "10_1 Status",
+                "size": "auto",
+                "png": null,
+                "alignment": "center:center",
+                "pngalignment": "center:center",
+                "color": 16777215,
+                "bgcolor": 0,
+                "show_topbar": "default"
+            },
+            "options": {
+                "relativeDelay": false,
+                "stepAutoProgress": true
+            },
+            "feedbacks": [
+                {
+                    "id": "QmwiTZ47O_CQdnUxxdA1L",
+                    "type": "variable_value",
+                    "instance_id": "internal",
+                    "options": {
+                        "variable": "internal:custom_UPS10_1",
+                        "op": "eq",
+                        "value": "ON"
+                    },
+                    "style": {
+                        "color": 16777215,
+                        "bgcolor": 65280
+                    }
+                },
+                {
+                    "id": "s7to4hEfx-XLieXEkCgOf",
+                    "type": "variable_value",
+                    "instance_id": "internal",
+                    "options": {
+                        "variable": "internal:custom_UPS10_1",
+                        "op": "eq",
+                        "value": "OFF"
+                    },
+                    "style": {
+                        "color": 16777215,
+                        "bgcolor": 16711680
+                    }
+                },
+                {
+                    "id": "LDvQZPNWyE3q7uiRxEYVE",
+                    "type": "variable_value",
+                    "instance_id": "internal",
+                    "options": {
+                        "variable": "internal:custom_UPS10_1",
+                        "op": "eq",
+                        "value": "OFF*"
+                    },
+                    "style": {
+                        "color": 16777215,
+                        "bgcolor": 16777024
+                    }
+                },
+                {
+                    "id": "drsROL4KgXCMmjywbpqce",
+                    "type": "variable_value",
+                    "instance_id": "internal",
+                    "options": {
+                        "variable": "internal:custom_UPS10_1",
+                        "op": "eq",
+                        "value": "ON*"
+                    },
+                    "style": {
+                        "color": 16777215,
+                        "bgcolor": 16777024
+                    }
+                }
+            ],
+            "steps": {
+                "0": {
+                    "action_sets": {
+                        "down": [
+                            {
+                                "id": "xlVN8GbljHKmoLXe2S_5s",
+                                "action": "exec",
+                                "instance": "internal",
+                                "options": {
+                                    "path": "$(internal:custom_controlPath) 10 status -o 1",
+                                    "timeout": 20000,
+                                    "targetVariable": "UPS10_1"
+                                },
+                                "delay": 0
+                            }
+                        ],
+                        "up": []
+                    },
+                    "options": {
+                        "runWhileHeld": []
+                    }
+                }
+            }
+        },
+        "bank:96-17": {
+            "type": "button",
+            "style": {
+                "text": "10_1 OFF",
+                "size": "auto",
+                "png": null,
+                "alignment": "center:center",
+                "pngalignment": "center:center",
+                "color": 16777215,
+                "bgcolor": 0,
+                "show_topbar": "default"
+            },
+            "options": {
+                "relativeDelay": false,
+                "stepAutoProgress": true
+            },
+            "feedbacks": [
+                {
+                    "id": "Q0Sau0LM7lnioWzdijVcA",
+                    "type": "variable_value",
+                    "instance_id": "internal",
+                    "options": {
+                        "variable": "internal:custom_UPS10_1",
+                        "op": "eq",
+                        "value": "ON"
+                    },
+                    "style": {
+                        "color": 16777215,
+                        "bgcolor": 65280
+                    }
+                },
+                {
+                    "id": "Bwo-FyxZJFMK-dBzqT_cO",
+                    "type": "variable_value",
+                    "instance_id": "internal",
+                    "options": {
+                        "variable": "internal:custom_UPS10_1",
+                        "op": "eq",
+                        "value": "OFF"
+                    },
+                    "style": {
+                        "color": 16777215,
+                        "bgcolor": 16711680
+                    }
+                },
+                {
+                    "id": "R8qdXgOx3y7md0iMe7Xo-",
+                    "type": "variable_value",
+                    "instance_id": "internal",
+                    "options": {
+                        "variable": "internal:custom_UPS10_1",
+                        "op": "eq",
+                        "value": "OFF*"
+                    },
+                    "style": {
+                        "color": 16777215,
+                        "bgcolor": 16777024
+                    }
+                },
+                {
+                    "id": "x3AQLLwR5b8hnGD8cum6q",
+                    "type": "variable_value",
+                    "instance_id": "internal",
+                    "options": {
+                        "variable": "internal:custom_UPS10_1",
+                        "op": "eq",
+                        "value": "ON*"
+                    },
+                    "style": {
+                        "color": 16777215,
+                        "bgcolor": 16777024
+                    }
+                }
+            ],
+            "steps": {
+                "0": {
+                    "action_sets": {
+                        "down": [
+                            {
+                                "id": "kZd3BYo_GGn64SXa5Da-b",
+                                "action": "exec",
+                                "instance": "internal",
+                                "options": {
+                                    "path": "$(internal:custom_controlPath) 10 off -o 1",
+                                    "timeout": 20000,
+                                    "targetVariable": "UPS10_1"
+                                },
+                                "delay": 0
+                            }
+                        ],
+                        "up": []
+                    },
+                    "options": {
+                        "runWhileHeld": []
+                    }
+                }
+            }
+        }
+    },
+    "page": {
+        "name": "PAGE"
+    },
+    "instances": {},
+    "oldPageNumber": 96
+}

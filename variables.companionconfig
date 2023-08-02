@@ -1,0 +1,54 @@
+{
+    "version": 3,
+    "type": "full",
+    "custom_variables": {
+        "UPS12_1": {
+            "description": "A custom variable",
+            "defaultValue": "",
+            "persistCurrentValue": false,
+            "sortOrder": 0
+        },
+        "UPS12_2": {
+            "description": "A custom variable",
+            "defaultValue": "",
+            "persistCurrentValue": false,
+            "sortOrder": 1
+        },
+        "UPS12_3": {
+            "description": "A custom variable",
+            "defaultValue": "",
+            "persistCurrentValue": false,
+            "sortOrder": 2
+        },
+        "UPS12_4": {
+            "description": "A custom variable",
+            "defaultValue": "",
+            "persistCurrentValue": false,
+            "sortOrder": 3
+        },
+        "UPS12_5": {
+            "description": "A custom variable",
+            "defaultValue": "",
+            "persistCurrentValue": false,
+            "sortOrder": 4
+        },
+        "UPS12_6": {
+            "description": "A custom variable",
+            "defaultValue": "",
+            "persistCurrentValue": false,
+            "sortOrder": 5
+        },
+        "UPS12_7": {
+            "description": "A custom variable",
+            "defaultValue": "",
+            "persistCurrentValue": false,
+            "sortOrder": 6
+        },
+        "UPS12_8": {
+            "description": "A custom variable",
+            "defaultValue": "",
+            "persistCurrentValue": false,
+            "sortOrder": 7
+        }
+    }
+}
