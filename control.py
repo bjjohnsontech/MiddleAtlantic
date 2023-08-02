@@ -1,5 +1,4 @@
-#! /c/Users/BJ/AppData/Local/Microsoft/WindowsApps/python3.11.exe
-
+#! /usr/bin/python3
 
 import requests
 from bs4 import BeautifulSoup
@@ -20,7 +19,7 @@ parser.add_argument('-n', '--user', default = '')
 parser.add_argument('-p', '--password', default = '')
 args = parser.parse_args()
 
-cookieFile = "C:/Users/BJ/Code/MiddleAtlantic/cookie.pickle"
+cookieFile = "/Users/controlmacmini/MiddleAtlantic/cookie.pickle"
 
 def save_cookies(requests_cookiejar):
     with open(cookieFile, 'wb') as f:
